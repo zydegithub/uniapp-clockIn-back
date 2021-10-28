@@ -13,10 +13,10 @@ class RecordService extends Service {
     return result;
   }
 
-  async infoById({ id }) {
-    const result = await this.app.mysql.query(`select * ,(SELECT COUNT(*) from clockIn WHERE workerId = ${id}) as clockInNum, (SELECT SUM(money) from advance WHERE workerId = ${id}) as advanceMoney, (SELECT MAX(date) from clockIn WHERE workerId = ${id}) as maxDate, (SELECT MIN(date) from clockIn WHERE workerId = ${id}) as minDate from worker WHERE id = ${id}`);
-    return result;
-  }
+  // async infoById({ id }) {
+  //   const result = await this.app.mysql.query(`select * ,(SELECT COUNT(*) from clockIn WHERE workerId = ${id}) as clockInNum, (SELECT SUM(money) from advance WHERE workerId = ${id}) as advanceMoney, (SELECT MAX(date) from clockIn WHERE workerId = ${id}) as maxDate, (SELECT MIN(date) from clockIn WHERE workerId = ${id}) as minDate from worker WHERE id = ${id}`);
+  //   return result;
+  // }
 
   async add(options) {
     options.date = moment().format('YYYY-MM-DD HH:mm:ss');
