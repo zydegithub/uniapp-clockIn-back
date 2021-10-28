@@ -14,4 +14,6 @@ module.exports = app => {
   router.post('/advance', controller.advance.add);
   router.get('/bill/:id', controller.bill.infoById);
   router.post('/bill', controller.bill.add);
+  router.get('/record', controller.record.list);
+  router.post('/record', controller.record.add);
 };
