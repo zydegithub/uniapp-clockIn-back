@@ -10,6 +10,9 @@ class BaseService extends Service {
   async _list(options) {
     const { limit = 10, offset = 0 } = options;
     const result = await this.app.mysql.select(this.name, {
+      orders: [
+        ['date', 'desc'] //降序desc，升序asc
+      ],
       limit: Number(limit), // 查询条数
       offset: Number(offset), // 数据偏移量（分页查询使用）
     });

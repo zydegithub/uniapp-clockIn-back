@@ -5,15 +5,15 @@ const Controller = require('../base/base_controller');
 
 class RecordController extends Controller {
   async list() {
-    this._list()
+    await this._list()
   }
 
   async infoByKey() {
-    this._infoByKey()
+    await this._infoByKey()
   }
 
   async add() {
-    this._add()
+    await this._add()
   }
 }
 

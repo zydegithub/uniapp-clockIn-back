@@ -1,8 +1,7 @@
 'use strict';
+const CoreController = require('./core_controller');
 
-const Controller = require('egg').Controller;
-
-class BaseController extends Controller {
+class BaseController extends CoreController {
   get name() {
     return this.pathName.split('.')[1];
   }
@@ -35,11 +34,7 @@ class BaseController extends Controller {
   async _add() {
     const { ctx } = this;
     const result = await this.curService.add(ctx.request.body);
-    ctx.body = {
-      code: 200,
-      data: result,
-    };
-    ctx.status = 200;
+    this.success(result)
   }
 }
 
